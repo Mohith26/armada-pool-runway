@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Pools · Pool forecast · Atlas (concept)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="side-head"><img src="assets/logo-white-shadow.webp" alt="Armada" class="logo"><i class="ti ti-chevrons-left"></i></div>
+    <nav>
+      <a><i class="ti ti-map-pin"></i>Fleet Map</a>
+      <a><i class="ti ti-affiliate"></i>Assets &amp; Groups</a>
+      <a><i class="ti ti-satellite"></i>Connectivity</a>
+      <a><i class="ti ti-cloud-network"></i>SDWAN</a>
+      <a><i class="ti ti-antenna"></i>Private 5G</a>
+      <a><i class="ti ti-drone"></i>Drones</a>
+      <a><i class="ti ti-video"></i>Cameras</a>
+      <a><i class="ti ti-shopping-cart"></i>Marketplace</a>
+      <a class="sel"><i class="ti ti-database"></i>Data Pools</a>
+      <hr>
+      <a><i class="ti ti-cpu"></i>Bridge</a>
+      <a><i class="ti ti-world-bolt"></i>AI Grid</a>
+      <a><i class="ti ti-building-factory-2"></i>Edge Compute</a>
+      <a><i class="ti ti-box"></i>My Apps</a>
+      <a><i class="ti ti-basket"></i>App store</a>
+      <a><i class="ti ti-shield-plus"></i>OpsSafety</a>
+      <hr>
+      <a><i class="ti ti-user-cog"></i>Admin</a>
+      <a><i class="ti ti-help-circle"></i>Help Center</a>
+      <a><i class="ti ti-headset"></i>Support</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="top">
+      <div><div class="crumb">Connectivity</div><h1>Data Pools</h1></div>
+      <div class="actions">
+        <button class="btn outline">Account menu <i class="ti ti-chevron-down"></i></button>
+        <div class="search"><i class="ti ti-search"></i><span>Search assets</span><kbd>/</kbd></div>
+        <button class="ai" title="AI Assistant"><i class="ti ti-sparkles"></i></button>
+        <i class="ti ti-bell icon"></i>
+        <i class="ti ti-headset icon"></i>
+        <span class="vsep"></span>
+        <span class="avatar">MM</span>
+      </div>
+    </header>
+    <div class="tabs">
+      <a>Overview</a><a>Service lines</a><a>Usage &amp; statistics</a><a class="sel">Pool forecast <span class="new">New</span></a><a>Notification settings</a>
+    </div>
+
+    <div class="toolbar">
+      <div class="left">
+        <button class="btn outline"><i class="ti ti-adjustments-horizontal"></i>Edit pool settings</button>
+        <button class="btn outline"><i class="ti ti-plus"></i>Add top-up</button>
+      </div>
+      <div class="right">
+        <div class="select"><span class="mono-s">POOL</span> <b id="poolName">Gulf &amp; Permian Pool</b> <i class="ti ti-chevron-down"></i></div>
+        <div class="seg"><span class="on" id="cycleLbl">Nov 2026</span><span>Oct 2026</span><span>Sep 2026</span></div>
+      </div>
+    </div>
+
+    <section class="kpis">
+      <div class="kpi"><div class="n" id="kUsed">-</div><div class="l">Used this cycle</div>
+        <div class="bar"><i id="kUsedBar"></i></div>
+        <div class="li"><b class="sq grey"></b><span id="kUsedSub">-</span></div>
+        <div class="li"><b class="sq grey"></b><span id="kAlert">-</span></div></div>
+      <div class="kpi"><div class="n" id="kRisk">-</div><div class="l" id="kRiskL">Chance the pool runs out</div>
+        <div class="li"><b class="sq teal"></b><span id="kMed">-</span></div>
+        <div class="li"><b class="sq teal2"></b><span id="kRange">-</span></div>
+        <div class="li"><b class="sq grey"></b><span id="kLinear">-</span></div></div>
+      <div class="kpi"><div class="n" id="kRunout">-</div><div class="l">Most likely run-out day</div>
+        <div class="li"><b class="sq yellow"></b><span id="kRunRange">-</span></div>
+        <div class="li"><b class="sq grey"></b><span id="kLeft">-</span></div>
+        <div class="li"><b class="sq grey"></b><span id="kLines">-</span></div></div>
+      <div class="kpi"><div class="n" id="kCal">-</div><div class="l">Past checkpoints inside the 80% band</div>
+        <div class="li"><b class="sq green"></b><span id="kCalSub">-</span></div>
+        <div class="li"><b class="sq grey"></b><span id="kRaw">-</span></div>
+        <div class="li"><b class="sq grey"></b><span id="kErr">-</span></div></div>
+    </section>
+
+    <section class="row2">
+      <div class="card chart-card">
+        <div class="card-h"><div><div class="t">Cycle forecast</div><div class="s" id="chartSub">-</div></div>
+          <div class="legend"><span><b class="ln"></b>Actual</span><span><b class="ln dash"></b>Forecast median</span><span><b class="bx b80"></b>80% range</span><span><b class="bx b95"></b>95% range</span><span><b class="ln yel"></b>Pool size</span></div></div>
+        <div class="chart" id="chart"></div>
+      </div>
+      <div class="card cal-card">
+        <div class="card-h"><div><div class="t">Backtest</div><div class="s">Forecast error at 30 past checkpoints, May to Oct</div></div></div>
+        <div class="chart" id="calChart"></div>
+        <div class="note" id="calNote">-</div>
+      </div>
+    </section>
+
+    <section class="card planner">
+      <div class="card-h">
+        <div><div class="t">Limit planner</div><div class="s" id="planSub">-</div></div>
+        <div class="plan-actions">
+          <span class="mono-s">RISK TARGET</span>
+          <div class="seg" id="alphaSeg"><span data-a="0.05">5%</span><span data-a="0.1" class="on">10%</span><span data-a="0.2">20%</span></div>
+          <button class="btn outline" id="topupBtn">-</button>
+          <button class="btn primary" id="applyBtn">-</button>
+        </div>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>Service lines</th><th>Priority</th><th class="r">Used so far</th><th class="r">Forecast cycle total</th><th class="r">Recommended limit</th><th class="r">Expected curtailed</th></tr></thead>
+        <tbody id="planBody"></tbody>
+      </table>
+    </section>
+    <div class="toast" id="toast" hidden></div>
+    <footer class="disclaimer">Unofficial concept demo by Mohith Gajjela. Not affiliated with Armada. Synthetic data. <a href="https://github.com/Mohith26/armada-pool-runway">Source and method</a></footer>
+  </main>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

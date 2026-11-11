@@ -1,0 +1,1 @@
+{"type":"module","name":"armada-pool-runway","private":true,"scripts":{"test":"node --test"}}

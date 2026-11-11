@@ -1,0 +1,77 @@
+{
+  "seed": 20261118,
+  "asOf": "2026-11-17",
+  "allotmentGB": 19000,
+  "usedGB": 10032.9,
+  "linearGB": 17705,
+  "forecastGB": {
+    "q10": 17015,
+    "q50": 18337,
+    "q90": 20195
+  },
+  "pOverrun": 0.3195,
+  "runout": {
+    "p10": "2026-11-28",
+    "p50": "2026-11-29",
+    "p90": "2026-11-30"
+  },
+  "backtest": {
+    "checkpoints": 30,
+    "coveredCalibrated": 25,
+    "coveredRaw": 14,
+    "stretch": 2.5,
+    "medianAbsErr": 0.0533
+  },
+  "plans": [
+    {
+      "target": 0.05,
+      "before": 0.3195,
+      "after": 0.042,
+      "limits": 10,
+      "curtailGB": 610.6,
+      "topUpGB": 1766
+    },
+    {
+      "target": 0.1,
+      "before": 0.3195,
+      "after": 0.0985,
+      "limits": 9,
+      "curtailGB": 467.6,
+      "topUpGB": 1195
+    },
+    {
+      "target": 0.2,
+      "before": 0.3195,
+      "after": 0.198,
+      "limits": 9,
+      "curtailGB": 316.9,
+      "topUpGB": 543
+    }
+  ],
+  "pastCycles": [
+    {
+      "cycle": "May 2026",
+      "totalGB": 17672
+    },
+    {
+      "cycle": "Jun 2026",
+      "totalGB": 17478
+    },
+    {
+      "cycle": "Jul 2026",
+      "totalGB": 17111
+    },
+    {
+      "cycle": "Aug 2026",
+      "totalGB": 17586
+    },
+    {
+      "cycle": "Sep 2026",
+      "totalGB": 18646
+    },
+    {
+      "cycle": "Oct 2026",
+      "totalGB": 17470
+    }
+  ]
+}
